@@ -1,0 +1,126 @@
+#ignore the warning 
+import warnings
+warnings.simplefilter(action = "ignore", category = FutureWarning)
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import scipy.stats as st
+
+
+# import the dataset
+df = pd.read_csv("crime.csv")
+
+'''#dimension of the data  set
+print(df.shape)
+
+#column of the data set
+print(df.columns)'''
+
+'''#view the top five dataser
+print(df.head())'''
+
+
+#view the last five datset
+#print(df.tail())
+
+'''# view all the information from the dataset
+print(df.info())
+
+# view the describe function
+print(df.describe())'''
+
+'''# view the missing values and their sum in the dataset
+#print(df.isnull().sum())
+
+#View the max values 
+print(df.max)
+#View the min values
+print(df.min)
+#view the median values
+print(df.median)
+#view the mean value
+print(df.mean)
+#view the mode value
+print(df.mode)
+#view the count value
+print(df.count)'''
+
+
+'''#Clean the dataset
+print(df.dropna(inplace=True))
+'''
+'''# Create a numpy array from the crime rate
+import numpy as np
+#crime_code_array = np.array(df["Crm Cd"])
+#print(crime_code_array)
+
+# filtering years with crime data more than 50
+high_crime_years = df[df["Crm Cd"] > 50]
+print(high_crime_years)'''
+
+# create a historgram for the "crm cd"
+import matplotlib.pyplot as plt
+'''plt.hist(df["Crm Cd"], bins=10, color="blue", edgecolor="black")
+plt.xlabel("Crime Code")
+plt.ylabel("Frequency")
+plt.title("Distribution of Crime Codes")
+plt.show()'''
+# creating a Bar chart 
+'''avg_crime_code_by_area = df.groupby("AREA NAME")["Crm Cd"].mean()
+avg_crime_code_by_area.plot(kind='bar', color='orange')
+plt.xlabel("Area Name")
+plt.ylabel("Average Crime Code")
+plt.title("Crime Code by Area Name")
+plt.show()'''
+
+'''# creating Line graph
+plt.plot(df["DATE OCC"], df["Crm Cd"], marker='o')
+plt.xlabel("DATE OCC")
+plt.ylabel("Crime Code")
+plt.title("Trend of Crime Code Across DATE OCC")
+plt.show()'''
+'''# Scatter plot between 'Crm Cd" and "Vict Age"
+plt.scatter(df["Crm Cd"], df["Vict Age"], color='red')
+plt.xlabel("Crime Code")
+plt.ylabel("Victim Age")
+plt.title("Crime Code vs Victim Age")
+plt.show()
+'''
+'''#Boxplot for "crm cd" distributions by year:
+import seaborn as sns
+sns.boxplot(x="Year", y="Crm Cd", data=df)
+plt.title("Crime Code Distribution by Year")
+plt.show()'''
+
+'''# Heatmap for the correlation
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+plt.title("Feature Correlation Heatmap")
+plt.show()'''
+'''# Violin plot 
+sns.violinplot(x="AREA NAME", y="Crm Cd", data=df)
+plt.title("Crime Code by Area Name")
+plt.show()
+'''
+'''#Swarm plot
+sns.swarmplot(x="Year", y="Crm Cd", data=df)
+plt.xticks(rotation=90)
+plt.title("Crime Code Across Years")
+plt.show()'''
+
+'''#pair plot
+
+sns.pairplot(df[["Crm Cd", "Vict Age", "Year"]])
+plt.show()'''
+
+'''# count plot
+
+sns.countplot(x="Crm Cd Desc", data=df)
+plt.title("Count of Crime Descriptions")
+plt.show()
+'''
+'''# KDE plot
+sns.kdeplot(df["Crm Cd"], shade=True)
+plt.title("Distribution of Crime Codes")
+plt.show()'''
+
